@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;padding:0;margin:0;
+    background-color: #eee;
+}
+#chat {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    height: 100%;
+}
+#chat #messages {
+    -webkit-flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0px;
+}
+
+#input-bar{
+    width: 100%;
+    overflow: hidden;
+}
+#input-bar input {
+    width: 100%
+}
+#input-bar div {
+    display: block;
+    overflow: hidden;
+    padding: 0 5px
+}
+#input-bar button {
+    float: right;
+}
+#input-bar input, #input-bar button {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size:30px;
+}
+
+.message {
+    border: solid 1px #fefefe;
+    box-shadow: 0 0 10px #999;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+}
