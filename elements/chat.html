@@ -4,6 +4,7 @@
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/core-icons/core-icons.html">
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 
 <polymer-element name="my-chat">
     <template>
@@ -22,12 +23,22 @@
                 </div>
                 <paper-fab icon="add"></paper-fab>
             </core-toolbar>
-
         </div>
+        <core-ajax url="../messages.json" id="ajax"
+                   handleAs="json"></core-ajax>
     </template>
     <script>
+
         Polymer({
             messages:[{who:'Bob', text:'Hello!'}],
+            ready: function() {
+                var ajax = this.$.ajax;
+                var chat = this;
+                ajax.addEventListener('core-response', function(e) {
+                    chat.messages = this.response;
+                });
+                ajax.go(); // Call its API methods.
+            },
             message:'',
             addMessage: function() {
                 var input = this.$['input-bar'].querySelector('#input');
