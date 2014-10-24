@@ -4,18 +4,11 @@
     <meta charset="utf-8">
     <title>Chat</title>
     <link rel="stylesheet" href="chat.css"/>
+
+    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="elements/chat.html">
 </head>
 <body>
-    <div id="chat"><h1>Chat</h1>
-    <div id="messages">
-        <div class="message">
-            <b>Bob</b>: <i>Hello!</i>
-        </div>
-    </div>
-    <div id="input-bar">
-        <button id="send">Send</button>
-        <div id="input"><input id="new-message"></div>
-    </div>
-    <script src="chat.js"></script>
+    <my-chat></my-chat>
 </body>
 </html>

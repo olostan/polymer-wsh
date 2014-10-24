@@ -1,0 +1,16 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="message.html">
+
+<polymer-element name="my-chat" noscript>
+    <template>
+        <link rel="stylesheet" href="chat.css">
+        <h1>Chat</h1>
+        <div id="messages">
+            <my-message who="Bob" message="Hello!"></my-message>
+        </div>
+        <div id="input-bar">
+            <button id="send">Send</button>
+            <div id="input"><input id="new-message"></div>
+        </div>
+    </template>
+</polymer-element>

@@ -1,0 +1,17 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="my-message" noscript attributes="who message">
+    <template>
+        <style>
+            :host {
+                border: solid 1px #fefefe;
+                box-shadow: 0 0 10px #999;
+                padding: 10px;
+                background-color: white;
+                margin: 10px;
+                display:block;
+            }
+        </style>
+        <b>{{who}}</b>: <i>{{message}}</i>
+    </template>
+</polymer-element>
