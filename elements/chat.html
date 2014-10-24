@@ -1,16 +1,31 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="message.html">
 
-<polymer-element name="my-chat" noscript>
+<polymer-element name="my-chat">
     <template>
         <link rel="stylesheet" href="chat.css">
         <h1>Chat</h1>
         <div id="messages">
-            <my-message who="Bob" message="Hello!"></my-message>
+            <template repeat="{{ message in messages }}">
+                <my-message  who="{{message.who}}" message="{{message.text}}"></my-message>
+            </template>
         </div>
         <div id="input-bar">
-            <button id="send">Send</button>
-            <div id="input"><input id="new-message"></div>
+            <button id="send" on-click="{{addMessage}}">Send</button>
+            <div id="input"><input on-keypress="{{keyPressed}}" value="{{message}}"></div>
         </div>
     </template>
+    <script>
+        Polymer({
+            messages:[{who:'Bob', text:'Hello!'}],
+            message:'',
+            addMessage: function() {
+                this.messages.push({who:'Me', text:this.message});
+                this.message = '';
+            },
+            keyPressed: function(e) {
+                if (e.charCode==13) this.addMessage();
+            }
+        });
+    </script>
 </polymer-element>
